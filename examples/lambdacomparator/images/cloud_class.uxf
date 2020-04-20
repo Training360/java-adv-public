@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>30</y>
+      <w>300</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>CloudStorage
+--
+- provider: String
+- space: int
+- price: double
+--
++ CloudStorage(String, int, PayPeriod, double)
++ CloudStorage(String, int)
++ compareTo(CloudStorage): int
+ //getters</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>30</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+PayPeriod
+--
+MONTHLY, ANNUAL, LIFETIME
+--
+- length: int
+--
+- PayPeriod(int)
+- getLength(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>60</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+- period
+m1=0..1</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
