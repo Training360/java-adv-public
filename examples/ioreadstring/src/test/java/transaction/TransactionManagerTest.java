@@ -25,7 +25,7 @@ public class TransactionManagerTest {
     public void testUploadAccounts(){
         assertEquals(0,tm.getAccountList().size());
 
-        tm.uploadListFromFile("src/main/resources/accounts.txt");
+        tm.uploadListFromFile("src/test/resources/accounts.txt");
 
         assertEquals(5,tm.getAccountList().size());
         assertEquals("Jack Doe",tm.getAccountList().get(3).getName());
@@ -35,9 +35,9 @@ public class TransactionManagerTest {
 
     @Test
     public void makeTransactionsTest(){
-        tm.uploadListFromFile("src/main/resources/accounts.txt");
+        tm.uploadListFromFile("src/test/resources/accounts.txt");
 
-        tm.makeTransactions("src/main/resources/transactions.txt");
+        tm.makeTransactions("src/test/resources/transactions.txt");
 
         assertEquals(1201000,tm.getAccountList().get(0).getBalance(),0.0000001);
         assertEquals(721220,tm.getAccountList().get(3).getBalance(),0.00001);
