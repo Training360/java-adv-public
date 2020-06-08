@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class FileManagerTest {
 
 
-  private FileManager fm = new FileManager( "src/main/resources/names.txt");
+  private FileManager fm = new FileManager( "src/test/resources/names.txt");
 
   @Test
   public void createClassTest(){

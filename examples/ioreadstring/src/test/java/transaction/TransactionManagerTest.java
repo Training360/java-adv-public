@@ -8,19 +8,6 @@ public class TransactionManagerTest {
 
     private  TransactionManager tm = new TransactionManager();
 
-
-    @Test
-    public void testGetterOfList(){
-        assertEquals(0,tm.getAccountList().size());
-
-        tm.getAccountList().add(new BankAccount("John Doe","123",2300));
-
-        assertEquals(0,tm.getAccountList().size());
-
-
-    }
-
-
     @Test
     public void testUploadAccounts(){
         assertEquals(0,tm.getAccountList().size());

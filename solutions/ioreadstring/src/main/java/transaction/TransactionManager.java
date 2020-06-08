@@ -51,6 +51,6 @@ public class TransactionManager {
 
 
     public List<BankAccount> getAccountList() {
-        return new ArrayList<>(accountList);
+        return accountList;
     }
 }
