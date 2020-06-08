@@ -9,14 +9,10 @@ import java.util.List;
 
 public class Register {
 
-
-    public void newMark(String studentName, int mark) {
-
-        Path file = Path.of("src/main/resources/" + studentName + ".txt");
-
+    public void newMark(Path file, int mark) {
         try {
             if (Files.exists(file)) {
-                Files.writeString(file, Integer.toString(mark) + "\n", StandardOpenOption.APPEND);
+                Files.writeString(file, mark + "\n", StandardOpenOption.APPEND);
             } else {
                 Files.writeString(file, Integer.toString(mark));
             }
@@ -27,8 +23,7 @@ public class Register {
     }
 
 
-    public void average(String studentName) {
-        Path file = Path.of("src/main/resources/" + studentName + ".txt");
+    public void average(Path file) {
         try {
             List<String> myFile = Files.readAllLines(file);
             double sum = 0;

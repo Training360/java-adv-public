@@ -1,7 +1,8 @@
 package school;
 
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,63 +14,47 @@ import static org.junit.Assert.assertEquals;
 
 public class RegisterTest {
 
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
     private Register register = new Register();
 
-
-    @Before
-    public void deleteTestFilesIfExists() throws IOException {
-        Path file = Path.of("src/main/resources/john_doe.txt");
-        Path file2 = Path.of("src/main/resources/julie_doe.txt");
-        if (Files.exists(file)) {
-            Files.delete(file);
-        }
-        if (Files.exists(file2)) {
-            Files.delete(file2);
-        }
-    }
-
-
     @Test
     public void newMarkTestIfNotExists() throws IOException {
-
-        register.newMark("john_doe", 5);
-        Path testFile = Path.of("src/main/resources/john_doe.txt");
-        List<String> testList = Files.readAllLines(testFile);
+        Path file = temporaryFolder.newFile().toPath();
+        register.newMark(file, 5);
+        List<String> testList = Files.readAllLines(file);
 
         assertEquals(1, testList.size());
         assertEquals("5", testList.get(0));
-
-
     }
-
 
     @Test
     public void newMarkTestIfExists() throws IOException {
-        Path testFile = Path.of("src/main/resources/jane_doe.txt");
-        List<String> testList = Files.readAllLines(testFile);
-        int beforeSize = testList.size();
+        Path file = temporaryFolder.newFile().toPath();
+        register.newMark(file, 4);
+        register.newMark(file, 2);
 
-        register.newMark("jane_doe", 3);
-        testList = Files.readAllLines(testFile);
 
-        assertEquals(beforeSize + 1, testList.size());
+        register.newMark(file, 3);
+        List<String> testList = Files.readAllLines(file);
+
+        assertEquals(3, testList.size());
     }
 
     @Test
     public void averageTest() throws IOException {
-        Path testFile = Path.of("src/main/resources/julie_doe.txt");
-        Files.writeString(testFile, "5\n");
-        Files.writeString(testFile, "3\n", StandardOpenOption.APPEND);
-        Files.writeString(testFile, "4\n", StandardOpenOption.APPEND);
+        Path file = temporaryFolder.newFile().toPath();
+        Files.writeString(file, "5\n");
+        Files.writeString(file, "3\n", StandardOpenOption.APPEND);
+        Files.writeString(file, "4\n", StandardOpenOption.APPEND);
 
-        register.average("julie_doe");
+        register.average(file);
 
-        List<String> avgTestList = Files.readAllLines(testFile);
+        List<String> avgTestList = Files.readAllLines(file);
         assertEquals(4, avgTestList.size());
         assertEquals("average: 4.0", avgTestList.get(avgTestList.size() - 1));
 
     }
-
 
 }
