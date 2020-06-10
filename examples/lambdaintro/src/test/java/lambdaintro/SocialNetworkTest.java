@@ -1,4 +1,4 @@
-package lambdafunctinter;
+package lambdaintro;
 
 import org.junit.Test;
 

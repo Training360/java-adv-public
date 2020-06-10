@@ -1,11 +1,14 @@
 package talentshow;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -13,46 +16,39 @@ import static org.junit.Assert.assertTrue;
 
 public class ResultCalculatorTest {
 
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+
     private ResultCalculator rc = new ResultCalculator();
 
+    private Path talentsFile;
+
+    private Path votesFile;
 
     @Before
-    public void deleteFiles() throws IOException {
-        Path file = Path.of("src/main/resources/result.txt");
-        if (Files.exists(file)) {
-            Files.delete(file);
-        }
-    }
+    public void initFiles() throws IOException {
+        talentsFile = temporaryFolder.newFile().toPath();
+        Files.copy(ResultCalculatorTest.class.getResourceAsStream("talents.txt"), talentsFile, StandardCopyOption.REPLACE_EXISTING);
 
-    @Test
-    public void gettersTest() {
-        assertEquals(0, rc.getProductions().size());
-        assertEquals(0, rc.getVotes().size());
-
-        rc.getProductions().add(new Production(1, "Test"));
-        rc.getVotes().add(new Vote(1, 2));
-
-        assertEquals(0, rc.getProductions().size());
-        assertEquals(0, rc.getVotes().size());
+        votesFile = temporaryFolder.newFile().toPath();
+        Files.copy(ResultCalculatorTest.class.getResourceAsStream("votes.txt"), votesFile, StandardCopyOption.REPLACE_EXISTING);
 
     }
-
 
     @Test
     public void readProductionsTest() {
-        rc.readTalents();
+        rc.readTalents(talentsFile);
 
         assertEquals(12, rc.getProductions().size());
         assertEquals(6, rc.getProductions().get(5).getId());
         assertEquals("Magician", rc.getProductions().get(5).getName());
-
-
     }
 
 
     @Test
     public void calculateVotesTest() {
-        rc.calculateVotes();
+        rc.readTalents(talentsFile);
+        rc.calculateVotes(votesFile);
         int testNum = 0;
 
         for (Vote v : rc.getVotes()) {
@@ -62,25 +58,20 @@ public class ResultCalculatorTest {
         }
 
         assertEquals(4, testNum);
-
     }
 
 
     @Test
     public void writeResultToFileTest() throws IOException {
-        rc.calculateVotes();
-        rc.readTalents();
-        rc.writeResultToFile();
-        Path file = Path.of("src/main/resources/result.txt");
+        rc.readTalents(talentsFile);
+        rc.calculateVotes(votesFile);
 
-        List<String> results = Files.readAllLines(file);
-        for(String s : results){
-            if(s.contains("9 Singer")){
-                assertTrue(s.contains("5,22%"));
-            }
-        }
+        Path resultFile = temporaryFolder.newFile().toPath();
 
+        rc.writeResultToFile(resultFile);
+        List<String> results = Files.readAllLines(resultFile);
+        assertTrue(results.contains("9 Singer 6"));
 
-        assertTrue(results.get(results.size() - 1).equals("Winner: Actors_From_Shadow"));
+        assertEquals("Winner: Actors_From_Shadow", results.get(results.size() - 1));
     }
 }

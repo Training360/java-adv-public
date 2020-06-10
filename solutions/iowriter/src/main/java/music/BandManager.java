@@ -5,8 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,16 +12,10 @@ public class BandManager {
 
     private List<Band> bands = new ArrayList<>();
 
-
-    private Path file;
-
-
-    public BandManager(String fileName) {
-        this.file = Path.of("src/main/resources/" + fileName);
+    public BandManager() {
     }
 
-
-    public void readBandsFromFile() {
+    public void readBandsFromFile(Path file) {
         try (BufferedReader br = Files.newBufferedReader(file)) {
             String line;
 
@@ -38,17 +30,13 @@ public class BandManager {
         }
     }
 
-
-    public void writeOlderBandsThanToFile(int year) {
-        Path fileToWrite = Path.of("src/main/resources/olderThan" + year + ".txt");
-
+    public void writeBandsBefore(Path fileToWrite, int year) {
         try (BufferedWriter bw = Files.newBufferedWriter(fileToWrite)) {
-            for(Band band : olderThan(year)){
-                bw.write(band.getName()+" "+band.getYear()+"\n");
+            for (Band band : olderThan(year)) {
+                bw.write(band.getName() + " " + band.getYear() + "\n");
             }
-
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IllegalStateException("Can't write file", e);
         }
     }
 
@@ -56,15 +44,11 @@ public class BandManager {
         List<Band> result = new ArrayList<>();
 
         for (Band band : bands) {
-            if ((LocalDate.now().getYear() - band.getYear()) > year) {
+            if (band.getYear() < year) {
                 result.add(band);
             }
         }
 
-
         return result;
-
     }
-
-
 }

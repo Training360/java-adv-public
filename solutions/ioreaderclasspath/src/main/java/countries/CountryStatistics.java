@@ -24,7 +24,7 @@ public class CountryStatistics {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IllegalStateException("Can not read file", e);
         }
     }
 

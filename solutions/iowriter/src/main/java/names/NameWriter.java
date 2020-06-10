@@ -10,25 +10,18 @@ import java.util.List;
 
 public class NameWriter {
 
-    private List<String> names = new ArrayList<>();
     private Path file;
 
-    public NameWriter(String fileName) {
-        this.file = Path.of("src/main/resources/"+fileName);
+    public NameWriter(Path file) {
+        this.file = file;
     }
 
     public void addAndWrite(String name) {
-     names.add(name);
-      try(BufferedWriter bw = Files.newBufferedWriter(file, StandardOpenOption.APPEND)){
-          bw.write(name+"\n");
-      } catch (IOException e) {
-          throw new IllegalStateException("Can't open file!",e);
-      }
-    }
-
-
-    public List<String> getNames() {
-        return new ArrayList<>(names);
+        try (BufferedWriter bw = Files.newBufferedWriter(file, StandardOpenOption.APPEND)) {
+            bw.write(name + "\n");
+        } catch (IOException e) {
+            throw new IllegalStateException("Can't open file!", e);
+        }
     }
 
 }

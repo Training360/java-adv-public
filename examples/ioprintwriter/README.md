@@ -37,21 +37,21 @@ catch (IOException ioe) {
 ### Fizetések
 
 Ebben a feladatban emberek fizetését kell meghatároznod titulus alapján. A `SalaryWriter` osztály
-konstruktorban kap egy név listát. A `writeNamesAndSalaries(String fileName)` metódus kiírja a fájlba "név: összeg" formátumban.
+konstruktorban kap egy név listát. A `writeNamesAndSalaries(Path file)` metódus kiírja a fájlba `név: összeg` formátumban.
 A fizetések a következő képpen alakulnak:
 
-* Ha tartalmazza a név a "Dr" előtagot, akkor 500.000
-* Ha a "Mr" vagy "Mrs" előtagot akkor 200.000
-* Különben 100.0000
+* Ha tartalmazza a név a "Dr" előtagot, akkor 500000
+* Ha a "Mr" vagy "Mrs" előtagot akkor 200000
+* Különben 100000
 
 ### Szavazatszámlálás
 
 Ebben a feladatban egy tehetségkutató showt fogunk szimulálni. A feladat kicsit összetettebb. A `talents.txt` tartalmazza az
 indulók listáját, míg a `votes.txt` a leadott szavazatokat, azaz az előadó kódját.
 
-A te feladatot, hogy készíts egy kimutatást a `result.txt` fájlba. A fájlnak tartalmaznia a kódot az előadás nevét illetve, hogy az adott
-előadás a szavazatok hány százalékát kapta (két tizedesjegyre kerekítve)! Ezen felül az utolsó sornak tartalmaznia kell a győztes nevét a következő formátumban:
-"Winner: győztes neve". 
+A te feladatod, hogy készíts egy kimutatást egy fájlba. A fájlnak tartalmaznia a kódot az előadás nevét illetve, hogy az adott
+előadás hány szavazatot kapott! Ezen felül az utolsó sornak tartalmaznia kell a győztes nevét a következő formátumban:
+`Winner: győztes neve`. 
 
 A megoldáshoz használj nyugodtan private metódusokat.
 

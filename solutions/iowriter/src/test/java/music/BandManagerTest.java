@@ -1,39 +1,37 @@
 package music;
 
-import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
 import java.io.IOException;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class BandManagerTest {
-    private BandManager bandManager = new BandManager("bandsandyears.txt");
 
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
-    @Before
-    public void deleteCreatedFiles() throws IOException {
-        Path deletFile = Path.of("src/main/resources/olderThan30.txt");
-        Files.delete(deletFile);
-    }
+    private BandManager bandManager = new BandManager();
 
     @Test
     public void createOlderThanFile() throws IOException {
-        bandManager.readBandsFromFile();
-        bandManager.writeOlderBandsThanToFile(30);
+        Path inputFile = temporaryFolder.newFile().toPath();
+        Files.copy(BandManagerTest.class.getResourceAsStream("bands_and_years.txt"), inputFile, StandardCopyOption.REPLACE_EXISTING);
+        bandManager.readBandsFromFile(inputFile);
 
-        Path createdFile = Path.of("src/main/resources/olderThan30.txt");
+        Path outputFile = temporaryFolder.newFile().toPath();
+        bandManager.writeBandsBefore(outputFile, 1990);
 
+        List<String> lines = Files.readAllLines(outputFile);
 
-        List<String> lines = Files.readAllLines(createdFile);
-
-        assertEquals(5,lines.size());
-        assertEquals(true,lines.get(0).startsWith("Metallica"));
-        assertEquals(true,lines.get(3).startsWith("Edda"));
-
-
+        assertEquals(5, lines.size());
     }
+
 }

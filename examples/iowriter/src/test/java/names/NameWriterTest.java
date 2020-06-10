@@ -1,10 +1,10 @@
 package names;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,35 +14,35 @@ import static org.junit.Assert.assertEquals;
 
 public class NameWriterTest {
 
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
-    private NameWriter nameWriter = new NameWriter("names.txt");
-    private Path file = Path.of("src/main/resources/names.txt");
-
-    @Before
-    public void makeFileEmpty(){
-        try(BufferedWriter bw = Files.newBufferedWriter(file)){
-
-            bw.write("");
-
-        } catch (IOException e) {
-            throw new IllegalStateException("Can't open file!",e);
-        }
-    }
-
+    private NameWriter nameWriter;
 
     @Test
-    public void addAndWriteTest() throws IOException {
+    public void testWrite() throws IOException {
+        Path file = temporaryFolder.newFile().toPath();
+
+        nameWriter = new NameWriter(file);
+        nameWriter.addAndWrite("John Smith");
+
+        List<String> actual = Files.readAllLines(file);
+
+        assertEquals(List.of("John Smith"), actual);
+    }
+
+    @Test
+    public void testAppend() throws IOException {
+        Path file = temporaryFolder.newFile().toPath();
+
+        nameWriter = new NameWriter(file);
         nameWriter.addAndWrite("John Smith");
         nameWriter.addAndWrite("John Doe");
 
-        List<String> test= Files.readAllLines(file);
+        List<String> actual = Files.readAllLines(file);
 
-        assertEquals(2,test.size());
-        assertEquals(2,nameWriter.getNames().size());
-        assertEquals(test.get(0),nameWriter.getNames().get(0));
-
+        assertEquals(List.of("John Smith", "John Doe"), actual);
     }
-
 
 
 }

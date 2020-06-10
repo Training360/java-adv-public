@@ -5,8 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class ProductionTest {
-    private Production p = new Production(1,"The_Artist");
 
+    private Production p = new Production(1,"The_Artist");
 
     @Test
     public void createProduction() {

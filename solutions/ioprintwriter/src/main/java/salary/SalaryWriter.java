@@ -15,15 +15,12 @@ public class SalaryWriter {
     }
 
 
-    public void writeNamesAndSalaries(String fileName) {
-        Path file = Path.of("src/main/resources/" + fileName);
+    public void writeNamesAndSalaries(Path file) {
         try (PrintWriter pw = new PrintWriter(Files.newBufferedWriter(file))) {
             for (String name : names) {
-
                 pw.print(name);
                 pw.print(": ");
                 pw.println(decideSalary(name));
-
             }
         } catch (IOException e) {
             throw new IllegalStateException("Can't write file!");

@@ -3,6 +3,7 @@ package music;
 public class Band {
 
     private String name;
+
     private int year;
 
     public Band(String name, int year) {

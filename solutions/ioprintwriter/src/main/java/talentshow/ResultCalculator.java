@@ -1,7 +1,6 @@
 package talentshow;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
@@ -14,12 +13,8 @@ public class ResultCalculator {
 
     private List<Production> productions = new ArrayList<>();
     private List<Vote> votes = new ArrayList<>();
-    private double votesNumber = 0;
-    private static DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
-
-    public void readTalents() {
-        Path file = Path.of("src/main/resources/talents.txt");
+    public void readTalents(Path file) {
         try (BufferedReader br = Files.newBufferedReader(file)) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -34,14 +29,12 @@ public class ResultCalculator {
     }
 
 
-    public void calculateVotes() {
-        Path file = Path.of("src/main/resources/votes.txt");
+    public void calculateVotes(Path file) {
         try (BufferedReader br = Files.newBufferedReader(file)) {
             String line;
             while ((line = br.readLine()) != null) {
-                votesNumber++;
                 int actVote = Integer.parseInt(line);
-                voteAdder(actVote);
+                addVote(actVote);
             }
 
         } catch (IOException e) {
@@ -50,23 +43,16 @@ public class ResultCalculator {
     }
 
 
-    public void writeResultToFile() {
-        Path file = Path.of("src/main/resources/result.txt");
-
+    public void writeResultToFile(Path file) {
         try (PrintWriter pw = new PrintWriter(Files.newBufferedWriter(file))) {
-
             for (Vote v : votes) {
-
                 Production p = findProductionById(v.getId());
                 pw.print(v.getId() + " ");
                 pw.print(p.getName() + " ");
-                double percent = (v.getNumber() / votesNumber) * 100;
-                pw.print(decimalFormat.format(percent));
-                pw.println("%");
+                pw.print(v.getNumber());
+                pw.println();
             }
-
             pw.print("Winner: " + findWinner().getName());
-
         } catch (IOException e) {
             throw new IllegalStateException("Can't open file", e);
         }
@@ -92,7 +78,6 @@ public class ResultCalculator {
 
     }
 
-
     private Production findProductionById(long id) {
         for (Production p : productions) {
             if (p.getId() == id) {
@@ -102,7 +87,7 @@ public class ResultCalculator {
         return null;
     }
 
-    private void voteAdder(int id) {
+    private void addVote(int id) {
         boolean exist = false;
         for (Vote v : votes) {
             if (v.getId() == id) {
@@ -113,15 +98,13 @@ public class ResultCalculator {
         if (!exist) {
             votes.add(new Vote(id, 1));
         }
-
-
     }
 
     public List<Production> getProductions() {
-        return new ArrayList<>(productions);
+        return productions;
     }
 
     public List<Vote> getVotes() {
-        return new ArrayList<>(votes);
+        return votes;
     }
 }

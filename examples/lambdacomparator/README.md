@@ -107,3 +107,4 @@ Amennyiben több ugyanolyan van, akkor közülük bármelyik visszaadható.
 * `bestPriceForShortestPeriod()`: a legrövidebb időszakra vonatkozó legolcsóbb `CloudStorage`. Ha van 
 ingyenes, akkor azok közül bármelyik megadható.
 * `worstOffers()`: a természetes rendezettség szerinti 3 legrosszabb ajánlat.
+

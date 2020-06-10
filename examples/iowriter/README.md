@@ -59,14 +59,13 @@ nem jelent azonnali háttértárra írást, a `BufferedWriter`  először egy bi
 ### Nevek
 
 Az első feladatban egyszerűen neveket fogunk eltárolni fájlban és listában egyaránt. 
-A `NameWriter` osztály konstruktorban megkapja az írni kívánt fájl nevét. Az `addAndWrite()` metódus egy nevet vár paraméterül, amelyet eltárol egy listába és
+A `NameWriter` osztály konstruktorban megkapja az írni kívánt fájlt. Az `addAndWrite()` metódus egy nevet vár paraméterül, amelyet 
 hozzáfűzi a fájlhoz. A hozzáfűzéshez használd a korábban megismert `StandardOpenOption.Append` paramétert a `newBufferedWriter()` metódusban.
 
 ### Zenekarok
 
-Ebben a fájl olvasását és írását is gyakorolhatod. Adott a `bandsandyears.txt` állomány, melyben zenekarok nevét és alapítási évét találod.
-A te feladatod az lesz, hogy készíts egy metódust melynek a paramétere egy évszám. Ez a metódus ki fogja írni egy fájlba az évszámnál idősebb zenekarokat. 
-A kiírt fájl formátuma: `olderThanXX.txt` ahol az XX a paraméterül kapott évszám.
+Ebben a fájl olvasását és írását is gyakorolhatod. Adott a `bands_and_years.txt` állomány, melyben zenekarok nevét és alapítási évét találod.
+A te feladatod az lesz, hogy készíts egy metódust melynek a paramétere egy fájl és egy évszám. Ez a metódus ki fogja írni a fájlba az évszámnál régebben alakult zenekarokat. 
 Megoldási javaslat, hogy készíts egy privát metódust, ami kigyűjti ezeket a zenekarokat egy listába. 
 Minden zenekart egy `Band` objektum reprezentál, melynek attribútumai a név és az évszám.
 
