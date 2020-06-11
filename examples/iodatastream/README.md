@@ -74,7 +74,7 @@ szöveget írni?
 ### Számok
 
 Az `iodatastream.statistics` csomagba készíts egy `HeightStatistics` osztályt, bele pedig egy `saveHeights()` 
-metódust. A metódus egy kosárcsapat tagjainak testmagasságát kapja meg `List<Short>` típusú 
+metódust. A metódus egy kosárcsapat tagjainak testmagasságát kapja meg `List<Integer>` típusú 
 paraméterben. A  paraméterben kapott `Path` objektumként reprezentált fájlba menti 
 először a lista méretét, majd egyenként a lista elemeit.
 
