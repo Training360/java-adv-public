@@ -1,43 +1,44 @@
 package solid.base;
 
-import org.junit.Test;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AccountValidatorTest {
-	@Test
-	public void testIsValidWithShortUsername() {
-		AccountValidator accountValidator = new AccountValidator();
+    @Test
+    public void testIsValidWithShortUsername() {
+        AccountValidator accountValidator = new AccountValidator();
 
-		assertThat(accountValidator.isValid("12345"), is(false));
-	}
+        assertFalse(accountValidator.isValid("12345"));
+    }
 
-	@Test
-	public void testIsValidWithWrongUsername() {
-		AccountValidator accountValidator = new AccountValidator();
+    @Test
+    public void testIsValidWithWrongUsername() {
+        AccountValidator accountValidator = new AccountValidator();
 
-		assertThat(accountValidator.isValid("12 34 5"), is(false));
-	}
+        assertFalse(accountValidator.isValid("12 34 5"));
+    }
 
-	@Test
-	public void testIsValidWitGoodUsername() {
-		AccountValidator accountValidator = new AccountValidator();
+    @Test
+    public void testIsValidWitGoodUsername() {
+        AccountValidator accountValidator = new AccountValidator();
 
-		assertThat(accountValidator.isValid("123456"), is(true));
-	}
+        assertTrue(accountValidator.isValid("123456"));
+    }
 
-	@Test
-	public void testIsValidWithNull() {
-		AccountValidator accountValidator = new AccountValidator();
+    @Test
+    public void testIsValidWithNull() {
+        AccountValidator accountValidator = new AccountValidator();
 
-		assertThat(accountValidator.isValid(null), is(false));
-	}
+        assertFalse(accountValidator.isValid(null));
+    }
 
-	@Test
-	public void testIsValidWithEmptyString() {
-		AccountValidator accountValidator = new AccountValidator();
+    @Test
+    public void testIsValidWithEmptyString() {
+        AccountValidator accountValidator = new AccountValidator();
 
-		assertThat(accountValidator.isValid(""), is(false));
-	}
+        assertFalse(accountValidator.isValid(""));
+    }
 }

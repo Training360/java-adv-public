@@ -11,7 +11,7 @@ public class LongWordService {
     public void writeLongWords(Writer writer, List<String> words){
 
         PrintWriter printWriter = new PrintWriter(writer);
-        for(String s : words){
+        for (String s : words){
             printWriter.print(s);
             printWriter.print(":");
             printWriter.println(s.length());

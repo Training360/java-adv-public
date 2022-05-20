@@ -1,25 +1,20 @@
 package simplefactory.farm;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FarmComponentTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void emptyParameterShouldThrowException() throws IllegalArgumentException {
-        // Given
         Farm farm = new Farm(new FarmAnimalFactory());
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Animal type must not be empty!");
-        // When
-        farm.newAnimalArrived("");
+
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> farm.newAnimalArrived(""));
+        assertEquals("Animal type must not be empty!", ex.getMessage());
     }
 
     @Test
@@ -29,8 +24,8 @@ public class FarmComponentTest {
         //When
         farm.newAnimalArrived("frog");
         //Then
-        assertThat(farm.getAnimalVoices().size(), is(1));
-        assertThat(farm.getAnimalVoices().get(0), is("brekeke"));
+        assertEquals(1, farm.getAnimalVoices().size());
+        assertEquals("brekeke", farm.getAnimalVoices().get(0));
     }
 
     @Test
@@ -41,8 +36,8 @@ public class FarmComponentTest {
         farm.newAnimalArrived("frog");
         farm.newAnimalArrived("frog");
         //Then
-        assertThat(farm.getAnimalVoices().size(), is(1));
-        assertThat(farm.getAnimalVoices().get(0), is("brekeke"));
+        assertEquals(1, farm.getAnimalVoices().size());
+        assertEquals("brekeke", farm.getAnimalVoices().get(0));
     }
 
     @Test
@@ -53,9 +48,9 @@ public class FarmComponentTest {
         farm.newAnimalArrived("frog");
         farm.newAnimalArrived("horse");
         //Then
-        assertThat(farm.getAnimalVoices().size(), is(2));
-        assertThat(farm.getAnimalVoices().get(0), is("brekeke"));
-        assertThat(farm.getAnimalVoices().get(1), is("nyihaha"));
+        assertEquals(2, farm.getAnimalVoices().size());
+        assertEquals("brekeke", farm.getAnimalVoices().get(0));
+        assertEquals("nyihaha", farm.getAnimalVoices().get(1));
     }
 
     @Test
@@ -69,9 +64,9 @@ public class FarmComponentTest {
         farm.newAnimalArrived("horse");
         farm.newAnimalArrived("horse");
         //Then
-        assertThat(farm.getAnimalVoices().size(), is(3));
-        assertThat(farm.getAnimalVoices().get(0), is("brekeke"));
-        assertThat(farm.getAnimalVoices().get(1), is("kukuriku"));
-        assertThat(farm.getAnimalVoices().get(2), is("nyihaha"));
+        assertEquals(3, farm.getAnimalVoices().size());
+        assertEquals("brekeke", farm.getAnimalVoices().get(0));
+        assertEquals("kukuriku", farm.getAnimalVoices().get(1));
+        assertEquals("nyihaha", farm.getAnimalVoices().get(2));
     }
 }

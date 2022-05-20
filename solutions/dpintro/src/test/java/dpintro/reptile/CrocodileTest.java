@@ -1,25 +1,20 @@
 package dpintro.reptile;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CrocodileTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void lessEnergyShouldThrowException() throws IllegalArgumentException {
-        // Given
         Crocodile crocodile = new Crocodile(15);
-        exception.expect(IllegalArgumentException.class);
-        exception.expectMessage("Not enough energy to move!");
-        // When
-        crocodile.walk();
+        Exception ex = assertThrows(IllegalArgumentException.class, () -> {
+            crocodile.walk();
+        });
+        assertEquals("Not enough energy to move!", ex.getMessage());
     }
 
     @Test
@@ -29,7 +24,7 @@ public class CrocodileTest {
         //When
         crocodile.swim();
         //Then
-        assertThat(crocodile.getEnergy(), is(95));
+        assertEquals(95, crocodile.getEnergy());
     }
 
     @Test
@@ -39,6 +34,6 @@ public class CrocodileTest {
         //When
         crocodile.walk();
         //Then
-        assertThat(crocodile.getEnergy(), is(80));
+        assertEquals(80, crocodile.getEnergy());
     }
 }

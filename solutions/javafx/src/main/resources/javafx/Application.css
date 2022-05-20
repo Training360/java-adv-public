@@ -1,0 +1,10 @@
+.flow-pane {
+    -fx-padding: 10;
+    -fx-hgap: 20;
+}
+
+.my-button {
+    -fx-font: 16px "Serif";
+    -fx-padding: 10;
+    -fx-background-color: #CCFF99;
+}

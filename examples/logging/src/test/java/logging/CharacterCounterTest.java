@@ -1,25 +1,19 @@
 package logging;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CharacterCounterTest {
 
     @Test
     public void testFind() {
-        assertThat(new CharacterCounter().countCharacters("", "abcd"),
-                equalTo(0));
-        assertThat(new CharacterCounter().countCharacters("abcd", ""),
-                equalTo(0));
-        assertThat(new CharacterCounter().countCharacters("a", "a"),
-                equalTo(1));
-        assertThat(new CharacterCounter().countCharacters("aaaa", "a"),
-                equalTo(4));
-        assertThat(new CharacterCounter().countCharacters("aaaa", "abcd"),
-                equalTo(4));
-        assertThat(new CharacterCounter().countCharacters("abcdabcdabcdabce", "ae"),
-            equalTo(5));
+        assertEquals(0, new CharacterCounter().countCharacters("", "abcd"));
+        assertEquals(0, new CharacterCounter().countCharacters("abcd", ""));
+        assertEquals(1, new CharacterCounter().countCharacters("a", "a"));
+        assertEquals(4, new CharacterCounter().countCharacters("aaaa", "a"));
+        assertEquals(4, new CharacterCounter().countCharacters("aaaa", "abcd"));
+        assertEquals(5, new CharacterCounter().countCharacters("abcdabcdabcdabce", "ae"));
     }
 }

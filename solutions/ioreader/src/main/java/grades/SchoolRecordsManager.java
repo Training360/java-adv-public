@@ -37,7 +37,7 @@ public class SchoolRecordsManager {
 
     public double classAverage(){
         double sum=0;
-        for(Student s: students){
+        for (Student s: students){
             sum+=s.average();
         }
         return sum/students.size();

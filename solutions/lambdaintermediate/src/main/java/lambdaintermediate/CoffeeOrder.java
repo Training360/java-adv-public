@@ -1,21 +1,22 @@
 package lambdaintermediate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoffeeOrder {
 
-    private List<Coffee> coffeeList;
+    private List<Coffee> coffees;
 
     private LocalDateTime dateTime;
 
-    public CoffeeOrder(List<Coffee> coffeeList, LocalDateTime dateTime) {
-        this.coffeeList = coffeeList;
+    public CoffeeOrder(List<Coffee> coffees, LocalDateTime dateTime) {
+        this.coffees = coffees;
         this.dateTime = dateTime;
     }
 
-    public List<Coffee> getCoffeeList() {
-        return coffeeList;
+    public List<Coffee> getCoffees() {
+        return new ArrayList<>(coffees);
     }
 
     public LocalDateTime getDateTime() {

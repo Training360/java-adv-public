@@ -1,12 +1,15 @@
 package properties;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class JavaTools {
-    private static final String ENCODING_UTF8 = "UTF-8";
+
     public static final String NAME_PROPERTY_POSTFIX = "name";
+
     private static final String URL_PROPERTY_POSTFIX = "url";
+
     private Properties tools;
 
     public JavaTools() {
@@ -15,34 +18,31 @@ public class JavaTools {
         ) {
             tools = load(resource);
         } catch (IOException ioe) {
-            throw new RuntimeException("Cannot read file from classpath", ioe);
+            throw new IllegalStateException("Cannot read file from classpath", ioe);
         }
     }
 
     private Properties load(InputStream inputStream) {
         Properties result = new Properties();
         try (
-                InputStreamReader reader = new InputStreamReader(inputStream, ENCODING_UTF8)
+                InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)
         ) {
             result.load(reader);
             return result;
         } catch (IOException ioe) {
-            throw new RuntimeException("Cannot read properties file from inputstream", ioe);
+            throw new IllegalStateException("Cannot read properties file from inputstream", ioe);
         }
     }
 
     public Set<String> getToolKeys() {
         Set<String> keys;
         Set<String> result = new HashSet<>();
-
         keys = tools.stringPropertyNames();
-
         for (String key : keys) {
             if (key.contains(NAME_PROPERTY_POSTFIX)) {
                 result.add(key.substring(0,key.indexOf('.')));
             }
         }
-
         return result;
     }
 
@@ -50,10 +50,8 @@ public class JavaTools {
         Set<String> result = new HashSet<>();
         for (String key : getToolKeys()) {
             result.add(getName(key));
-
         }
         return result;
-
     }
 
     public String getName(String key) {
@@ -63,6 +61,4 @@ public class JavaTools {
     public String getUrl(String key) {
         return tools.getProperty(key + "." + URL_PROPERTY_POSTFIX);
     }
-
-
 }

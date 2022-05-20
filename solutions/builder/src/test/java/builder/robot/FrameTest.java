@@ -1,9 +1,8 @@
 package builder.robot;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FrameTest {
 
@@ -14,9 +13,9 @@ public class FrameTest {
         //When
         Frame frame = new Frame(bytes);
         //Then
-        assertThat(frame.getBytes()[0], is(bytes[0]));
-        assertThat(frame.getBytes()[1], is(bytes[1]));
-        assertThat(frame.getBytes()[2], is(bytes[2]));
+        assertEquals(bytes[0], frame.getBytes()[0]);
+        assertEquals(bytes[1], frame.getBytes()[1]);
+        assertEquals(bytes[2], frame.getBytes()[2]);
     }
 
     @Test
@@ -26,7 +25,7 @@ public class FrameTest {
         //When
         Frame frame = new Frame(bytes);
         //Then
-        assertThat(frame.toHexString(), is("FF-00-01"));
+        assertEquals("FF-00-01", frame.toHexString());
     }
 
     @Test
@@ -36,7 +35,7 @@ public class FrameTest {
         //When
         Frame frame = new Frame(bytes);
         //Then
-        assertThat(frame.toHexString(), is(""));
+        assertEquals("", frame.toHexString());
     }
 
     @Test
@@ -46,6 +45,6 @@ public class FrameTest {
         //When
         Frame frame = new Frame(bytes);
         //Then
-        assertThat(frame.toHexString(), is("01"));
+        assertEquals("01", frame.toHexString());
     }
 }

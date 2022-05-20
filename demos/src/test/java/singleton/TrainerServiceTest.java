@@ -1,35 +1,29 @@
 package singleton;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TrainerServiceTest {
 
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
-    @Before
-    public void clearRepository() {
+    @Test
+    public void createAndFind() {
         TrainerRepository.getInstance().clear();
+
+        TrainerService.getInstance().createTrainer("John Doe");
+        Trainer trainer = TrainerService.getInstance().findByName("John Doe");
+        assertEquals("John Doe", trainer.getName());
     }
 
     @Test
     public void createAndDoNotFind() {
-        expectedException.expect(IllegalArgumentException.class);
+        TrainerRepository.getInstance().clear();
 
         TrainerService.getInstance().createTrainer("John Doe");
-        TrainerService.getInstance().findByName("Jane");
-    }
 
-    @Test
-    public void createAndFind() {
-        TrainerService.getInstance().createTrainer("John Doe");
-        Trainer trainer = TrainerService.getInstance().findByName("John Doe");
-        assertThat(trainer.getName(), equalTo("John Doe"));
+        assertThrows(IllegalArgumentException.class, () -> {
+            TrainerService.getInstance().findByName("Jane");
+        });
     }
 }

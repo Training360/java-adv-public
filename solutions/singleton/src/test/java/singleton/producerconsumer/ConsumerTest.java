@@ -1,27 +1,24 @@
 package singleton.producerconsumer;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ConsumerTest {
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
     @Test
     public void emptyStoreShouldThrowException() throws IllegalStateException {
-        // Given
+
         StoreTestImpl store = new StoreTestImpl();
-        exception.expect(IllegalStateException.class);
-        exception.expectMessage("Store is empty");
-        // When
+
         Consumer consumer = new Consumer(store);
-        consumer.consume();
+
+
+        Exception ex = assertThrows(IllegalStateException.class, () -> consumer.consume());
+        assertEquals("Store is empty, no product is available!", ex.getMessage());
+
     }
 
     @Test
@@ -33,7 +30,7 @@ public class ConsumerTest {
         //When
         Consumer consumer = new Consumer(store);
         //Then
-        assertThat(consumer.consume().getName(), is("Apple"));
-        assertThat(consumer.consume().getName(), is("Orange"));
+        assertEquals("Apple", consumer.consume().getName());
+        assertEquals("Orange", consumer.consume().getName());
     }
 }

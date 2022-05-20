@@ -1,17 +1,17 @@
 package templatemethod.bank;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class YieldProductTest {
 
-	@Test
-	public void testRound() {
-		//Given
-		YieldProduct yieldProduct = new YieldProduct(123);
-		//Then
-		assertThat(yieldProduct.round(125.5), is(125));
-	}
+    @Test
+    public void testRound() {
+        //Given
+        YieldProduct yieldProduct = new YieldProduct(123);
+        //Then
+        assertEquals(125, yieldProduct.round(125.5));
+    }
 }

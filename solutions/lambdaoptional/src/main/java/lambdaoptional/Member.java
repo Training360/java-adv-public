@@ -8,9 +8,9 @@ public class Member {
 
     private List<String> skills;
 
-    private Sex gender;
+    private Gender gender;
 
-    public Member(String name, List<String> skills, Sex gender) {
+    public Member(String name, List<String> skills, Gender gender) {
         this.name = name;
         this.skills = skills;
         this.gender = gender;
@@ -24,7 +24,7 @@ public class Member {
         return skills;
     }
 
-    public Sex getGender() {
+    public Gender getGender() {
         return gender;
     }
 

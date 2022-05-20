@@ -8,13 +8,13 @@ public class Book {
 
     private int price;
 
-    private int number;
+    private int pieces;
 
-    public Book(String title, int yearOfPublish, int price, int number) {
+    public Book(String title, int yearOfPublish, int price, int pieces) {
         this.title = title;
         this.yearOfPublish = yearOfPublish;
         this.price = price;
-        this.number = number;
+        this.pieces = pieces;
     }
 
     public String getTitle() {
@@ -29,7 +29,7 @@ public class Book {
         return price;
     }
 
-    public int getNumber() {
-        return number;
+    public int getPieces() {
+        return pieces;
     }
 }

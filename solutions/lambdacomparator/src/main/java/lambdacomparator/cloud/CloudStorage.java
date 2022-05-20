@@ -46,5 +46,4 @@ public class CloudStorage implements Comparable<CloudStorage> {
         double otherValue = o.period != null ? o.price * STANDARD_PERIOD / o.period.getLength() / o.space * STANDARD_SIZE : 0;
         return Double.compare(currentValue, otherValue);
     }
-
 }

@@ -1,12 +1,13 @@
 package dpintro.iteratorpattern;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.junit.Assert.assertThat;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class IteratorTest {
 
@@ -18,9 +19,9 @@ public class IteratorTest {
         //Given
         Zoo zoo = new Zoo(animalList);
         Iterator iter = zoo.getIterator();
-        //Then
+           //Then
         while (iter.hasNext()) {
-            assertThat(testList, hasItem(((Animal) iter.next()).getName()));
+            assertTrue(testList.contains(((Animal) iter.next()).getName()));
         }
     }
 }

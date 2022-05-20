@@ -1,44 +1,44 @@
 package clone.timesheet;
 
-import clone.timesheet.TimeSheetItem;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 
-public class TimeSheetItemTest {
+class TimeSheetItemTest {
 
     TimeSheetItem timeSheetItem = new TimeSheetItem("John Doe", "JavaProject",
             LocalDateTime.of(2017, 4, 24, 8, 0),
             LocalDateTime.of(2017, 4, 24, 17, 30));
 
-
     @Test
-    public void testCreateWithData() {
-        assertThat(timeSheetItem.getEmployee(), equalTo("John Doe"));
-        assertThat(timeSheetItem.getProject(), equalTo("JavaProject"));
-        assertThat(timeSheetItem.getFrom(), equalTo(LocalDateTime.of(2017, 4, 24, 8, 0)));
-        assertThat(timeSheetItem.getTo(), equalTo(LocalDateTime.of(2017, 4, 24, 17, 30)));
+    void testCreateWithData() {
+        assertEquals("John Doe", timeSheetItem.getEmployee());
+        assertEquals("JavaProject", timeSheetItem.getProject());
+        assertEquals(LocalDateTime.of(2017, 4, 24, 8, 0), timeSheetItem.getFrom());
+        assertEquals(LocalDateTime.of(2017, 4, 24, 17, 30), timeSheetItem.getTo());
     }
 
     @Test
-    public void testCreateBasedOnTimeSheetItem() {
+    void testCreateBasedOnTimeSheetItem() {
         TimeSheetItem anotherTimeSheetItem = new TimeSheetItem(timeSheetItem);
-        assertThat(anotherTimeSheetItem.getEmployee(), equalTo("John Doe"));
-        assertThat(anotherTimeSheetItem.getProject(), equalTo("JavaProject"));
-        assertThat(anotherTimeSheetItem.getFrom(), equalTo(LocalDateTime.of(2017, 4, 24, 8, 0)));
-        assertThat(anotherTimeSheetItem.getTo(), equalTo(LocalDateTime.of(2017, 4, 24, 17, 30)));
+
+        assertEquals("John Doe", anotherTimeSheetItem.getEmployee());
+        assertEquals("JavaProject", anotherTimeSheetItem.getProject());
+        assertEquals(LocalDateTime.of(2017, 4, 24, 8, 0), anotherTimeSheetItem.getFrom());
+        assertEquals(LocalDateTime.of(2017, 4, 24, 17, 30), anotherTimeSheetItem.getTo());
+        assertNotSame(timeSheetItem, anotherTimeSheetItem);
     }
 
     @Test
-    public void testCreateWithDifferentDay() {
-        TimeSheetItem anotherTimeSheetItem = TimeSheetItem.withDifferentDay(timeSheetItem, LocalDate.of(2017, 4, 25));
-        assertThat(anotherTimeSheetItem.getEmployee(), equalTo("John Doe"));
-        assertThat(anotherTimeSheetItem.getProject(), equalTo("JavaProject"));
-        assertThat(anotherTimeSheetItem.getFrom(), equalTo(LocalDateTime.of(2017, 4, 25, 8, 0)));
-        assertThat(anotherTimeSheetItem.getTo(), equalTo(LocalDateTime.of(2017, 4, 25, 17, 30)));
+    void testCreateWithDifferentEmployee() {
+        TimeSheetItem anotherTimeSheetItem = timeSheetItem.copyWithDifferentEmployee(timeSheetItem, "Jack Doe");
+
+        assertEquals("Jack Doe", anotherTimeSheetItem.getEmployee());
+        assertEquals("JavaProject", anotherTimeSheetItem.getProject());
+        assertEquals(LocalDateTime.of(2017, 4, 24, 8, 0), anotherTimeSheetItem.getFrom());
+        assertEquals(LocalDateTime.of(2017, 4, 24, 17, 30), anotherTimeSheetItem.getTo());
     }
 }

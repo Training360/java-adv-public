@@ -12,6 +12,6 @@ public class Zoo implements Container {
 
     @Override
     public Iterator getIterator() {
-        return new ZooIterator(this.animals);
+        return new ZooIterator(animals);
     }
 }

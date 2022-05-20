@@ -1,60 +1,73 @@
 package school;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegisterTest {
 
-    @Rule
-    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+    @TempDir
+    public Path temporaryFolder;
 
     private Register register = new Register();
 
     @Test
-    public void newMarkTestIfNotExists() throws IOException {
-        Path file = temporaryFolder.newFile().toPath();
-        register.newMark(file, 5);
-        List<String> testList = Files.readAllLines(file);
+    void testRegisterStudent() throws IOException {
+        Path file = Files.createFile(temporaryFolder.resolve("kiss_luca.txt"));
+        register.registerStudent("Kiss Luca", file);
 
-        assertEquals(1, testList.size());
-        assertEquals("5", testList.get(0));
+        assertTrue(Files.exists(temporaryFolder.resolve("kiss_luca.txt")));
+
+        String name = Files.readString(file);
+
+        assertEquals("Kiss Luca" + "\n", name);
     }
 
     @Test
-    public void newMarkTestIfExists() throws IOException {
-        Path file = temporaryFolder.newFile().toPath();
-        register.newMark(file, 4);
-        register.newMark(file, 2);
-
-
-        register.newMark(file, 3);
+    public void testNewMarkFirstMark() throws IOException {
+        Path file = Files.createFile(temporaryFolder.resolve("kiss_luca.txt"));
+        register.registerStudent("Kiss Luca", file);
+        register.registerNewMark(file, 5);
         List<String> testList = Files.readAllLines(file);
 
-        assertEquals(3, testList.size());
+        assertEquals(2, testList.size());
+        assertEquals("Kiss Luca", testList.get(0));
+        assertEquals("5", testList.get(1));
+    }
+
+    @Test
+    public void testNewMark() throws IOException {
+        Path file = Files.createFile(temporaryFolder.resolve("kiss_luca.txt"));
+        register.registerStudent("Kiss Luca", file);
+        register.registerNewMark(file, 5);
+        register.registerNewMark(file, 3);
+        register.registerNewMark(file, 2);
+        register.registerNewMark(file, 2);
+        List<String> testList = Files.readAllLines(file);
+
+        assertEquals(5, testList.size());
+        assertEquals("2", testList.get(3));
     }
 
     @Test
     public void averageTest() throws IOException {
-        Path file = temporaryFolder.newFile().toPath();
-        Files.writeString(file, "5\n");
-        Files.writeString(file, "3\n", StandardOpenOption.APPEND);
-        Files.writeString(file, "4\n", StandardOpenOption.APPEND);
+        Path file = Files.createFile(temporaryFolder.resolve("kiss_luca.txt"));
+        register.registerStudent("Kiss Luca", file);
+        register.registerNewMark(file, 5);
+        register.registerNewMark(file, 3);
+        register.registerNewMark(file, 2);
+        register.registerNewMark(file, 2);
+        register.writeAverage(file);
+        List<String> testList = Files.readAllLines(file);
 
-        register.average(file);
-
-        List<String> avgTestList = Files.readAllLines(file);
-        assertEquals(4, avgTestList.size());
-        assertEquals("average: 4.0", avgTestList.get(avgTestList.size() - 1));
-
+        assertEquals(6, testList.size());
+        assertEquals("average: 3.0", testList.get(5));
     }
-
 }

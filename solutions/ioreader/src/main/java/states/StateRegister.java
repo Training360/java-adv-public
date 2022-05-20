@@ -38,7 +38,7 @@ public class StateRegister {
 
     public String findCapitalByStateName(String stateName){
 
-        for(State state:states){
+        for (State state:states){
             if(stateName.equals(state.getStateName())){
                 return  state.getCapital();
             }

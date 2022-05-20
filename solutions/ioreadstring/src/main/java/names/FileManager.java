@@ -21,7 +21,7 @@ public class FileManager {
         try {
              List<String> fileInString = Files.readAllLines(myFile);
             for (String s : fileInString) {
-                String firstAndLast[] = s.split(" ");
+                String[] firstAndLast = s.split(" ");
                 Human h = new Human(firstAndLast[0], firstAndLast[1]);
                 humans.add(h);
             }

@@ -1,6 +1,5 @@
 package genericsusage.withgenerics;
 
-
 import genericsusage.Book;
 
 import java.util.List;
@@ -16,5 +15,4 @@ public class Library {
         }
         return books.get(0);
     }
-
 }

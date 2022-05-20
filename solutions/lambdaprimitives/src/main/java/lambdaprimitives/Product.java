@@ -3,7 +3,9 @@ package lambdaprimitives;
 public class Product {
 
     private String name;
+
     private double price;
+
     private int pieces;
 
     public Product(String name, double price, int pieces) {

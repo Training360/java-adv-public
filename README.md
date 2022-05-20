@@ -1,87 +1,130 @@
 # JAVA-BSC - Java SE haladó
 
-## Javasolt haladás
-
-* Először nézd meg a videót! A videóban szereplő forráskódot a [demos](demos) könyvtárban találod.
-* Dolgozd fel a videóhoz tartozó írott anyagot, amelynek itt találod a tartalomjegyzékét, és a következő részekből áll:
-	* Olvasd el a megfelelő elméleti részt, értelmezd!
-	* Próbálj válaszolni az ellenőrző kérdésekre!
-	* Old meg a gyakorlati feladatot, melynek itt találod a feladatleírását. Dolgozhatsz ugyanabba a projektbe. Minden leckéhez hozz létre külön csomagot! Figyelj, hogy a minden leckéhez vannak tesztesetek, ezeket másold be a projektedbe!
-
 ## Tartalomjegyzék
 
-* [ioreadstring - Szöveges állomány beolvasása](examples/ioreadstring/README.md)
-* [iowritestring - String kiírása szöveges állományba](examples/iowritestring/README.md)
-* [ioreadwritebytes - Bájtos beolvasása fájlból és kiírása fájlba](examples/ioreadwritebytes/README.md)
-* [ioreader - String olvasása Readerrel](examples/ioreader/README.md)
-* [iowriter - String írása Writerrel](examples/iowriter/README.md)
-* [ioprintwriter - Különböző típusok írása PrintWriterrel](examples/ioprintwriter/README.md)
-* [iostringwriter - Kiírás Stringbe StringWriterrel](examples/iostringwriter/README.md)
-* [ioreadbytes - Bájtok olvasása InputStreammel](examples/ioreadbytes/README.md)
-* [ioreaderclasspath - String olvasása classpath-ról](examples/ioreaderclasspath/README.md)
-* [iowritebytes - Bájtok írása OutputStreammel](examples/iowritebytes/README.md)
-* [iodatastream - Adatok írása OutputStreamre, és olvasás](examples/iodatastream/README.md)
-* [iozip - Bájtok írása tömörítéssel](examples/iozip/README.md)
-* [ioconvert - Konvertálás a típusok között](examples/ioconvert/README.md)
-* [iofiles - Files osztály használata](examples/iofiles/README.md)
-* [iofilestest - Fájlkezelés tesztelése](examples/iofilestest/README.md)
-* [genericsusage - Generikusok használata, diamond operátor](examples/genericsusage/README.md)
-* [collectionsequalshash - equals, hashCode](examples/collectionsequalshash/README.md)
-* [collectionslist - List, ArrayList kontra LinkedList](examples/collectionslist/README.md)
-* [collectionsset - Set](examples/collectionsset/README.md)
-* [collectionsqueue - Queue](examples/collectionsqueue/README.md)
-* [collectionsmap - Map](examples/collectionsmap/README.md)
-* [collectionsautoboxing - Autoboxing használata kollekcióknál](examples/collectionsautoboxing/README.md)
-* [collectionsiterator - Bejárás](examples/collectionsiterator/README.md)
-* [collectionscomp - Comparable és Comparator](examples/collectionscomp/README.md)
-* [searching - Keresés](examples/searching/README.md)
-* [sorting - Rendezés](examples/sorting/README.md)
-* [collectionsclass - Collections osztály (keresésen, rendezésen felüli metódusok)](examples/collectionsclass/README.md)
-* [clone - A clone() metódus, deep clone](examples/clone/README.md)
-* [properties - Properties állományok](examples/properties/README.md)
-* [lambdaintro - Bevezetés a lambda kifejezések használatába](examples/lambdaintro/README.md)
-* [lambdaoptional - Optional használata](examples/lambdaoptional/README.md)
-* [lambdacomparator - Comparator módosítások](examples/lambdacomparator/README.md)
-* [lambdastreams - Streamek](examples/lambdastreams/README.md)
-* [lambdaintermediate - Intermediate műveletek](examples/lambdaintermediate/README.md)
-* [lambdaprimitives - Primitívek használata streamekben](examples/lambdaprimitives/README.md)
-* [lambdacollectors - Collectors](examples/lambdacollectors/README.md)
-* [datenewtypes - Új típusok, LocalDate, LocalTime, parse](examples/datenewtypes/README.md)
-* [dateoldtypes - Régi dátum- és időkezeléssel kapcsolatos típusok](examples/dateoldtypes/README.md)
-* [jvm - JVM](examples/jvm/README.md)
-* [thirdparty - Third party library-k](examples/thirdparty/README.md)
-* [logging - Naplózás](examples/logging/README.md)
-* [dpintro - Bevezetés a tervezési minták használatába](examples/dpintro/README.md)
-* [solid - S.O.L.I.D. elvek](examples/solid/README.md)
-* [singleton - Singleton tervezési minta](examples/singleton/README.md)
-* [builder - Builder tervezési minta](examples/builder/README.md)
-* [templatemethod - Template method tervezési minta](examples/templatemethod/README.md)
-* [simplefactory - Simple factory tervezési minta](examples/simplefactory/README.md)
+### Kollekciók és osztálykönyvtárak
 
-## Java fejlesztőeszközök
+Belső osztályok
 
-Ellenőrizd, lehet, hogy a gépeden már előre van telepítve a 
-Java SE Development Kit!
+* nestedclasses - Belső osztályok
 
-Nézd meg a `C:\Program Files\Java` könyvtárat!
+Kollekciók
 
-A Java SE Development Kit már nem állítja be sem a `JAVA_HOME`
-környezeti változót, sem a `PATH`-t, ezért
-kézzel kell beállítani a környezeti változók között.
+* genericsusage - Generikusok használata, diamond operátor
+* collectionsequalshash - Az equals() és hashCode() metódusok
+* collectionslist - List, ArrayList kontra LinkedList
+* collectionsset - Set
+* collectionsqueue - Queue
+* collectionsmap - Map
+* collectionsautoboxing - Autoboxing használata kollekcióknál
 
-Ez ettől függetlenül nem szükséges, mert a 
-Java SE Development Kitet kizárólag fejlesztőkörnyezetből
-használjuk, parancssorból nem.
+Műveletek kollekciókkal
 
-Amennyiben mégis be kell állítani, a következő kettőt kell:
+* collectionsiterator - Bejárás
+* collectionscomp - A Comparable és Comparator interfészek
+* searching - Keresés
+* sorting - Rendezés
+* collectionsclass - Collections osztály (keresésen, rendezésen felüli metódusok)
+* clone - A clone() metódus, deep clone
 
-```
-JAVA_HOME=C:\Program Files\Java\jdk-12.0.0
-```
+Lambda kifejezések és streamek
 
-Valamint módosítani kell a `PATH` környezeti változó
-értékét, fel kell venni egy új sort:
+* lambda - Bevezetés a lambda kifejezések használatába
+* lambdademo - Bevezetés a lambda kifejezések használatába - gyakorlat
+* optional - Bevezetés az Optional osztály használatába
+* streams - Bevezetés a streamek használatába
+* streams-demo1 - Bevezetés a streamek használatába - gyakorlat - komplex példa
+* streams-demo2 - Bevezetés a streamek használatába - gyakorlat - források
+* streams-demo3 - Bevezetés a streamek használatába - gyakorlat - közbülső és lezáró műveletek
+* streamsalgorithms-demo - Programozási tételek streamek használatával - megoldás
+* lambdaintro - Bevezetés a lambda kifejezések használatába
+* lambdaoptional - Optional használata
+* lambdacomparator - Comparator módosítások
+* lambdastreams - Streamek
+* lambdaintermediate - Intermediate műveletek
+* lambdaprimitives - Primitívek használata streamekben
+* lambdacollectors - Collectors
 
-```
-%JAVA_HOME%\bin
-```
+Dátum és időkezelés
+
+* datenewtypes - Új típusok, LocalDate, LocalTime, parse
+* dateperiod - Period
+* dateduration - Duration
+* datedaylight - Időzónák és téli-nyári időszámítás
+* dateoldtypes - Régi dátum- és időkezeléssel kapcsolatos típusok
+
+További osztályok és többnyelvű alkalmazások
+
+* formatlocaleregexp - Reguláris kifejezések
+* formatlocale - Locale osztály nyelv megadására
+* formatnumberformat - NumberFormat osztály számok formázására
+* formatlocalebundle - ResourceBundle osztály nyelvi fordítások tárolására
+* formatlocalemessage - MessageFormat paraméterezett nyelvi fordítások használatára
+* bigdecimal - Nagy számok kezelése
+
+Haladó fájlkezelés
+
+* ioreadstring - Szöveges állomány beolvasása
+* iowritestring - String kiírása szöveges állományba
+* ioreadwritebytes - Bájtok beolvasása fájlból és kiírása fájlba
+* ioreader - String olvasása Readerrel
+* iowriter - String írása Writerrel
+* ioprintwriter - Különböző típusok írása PrintWriterrel
+* iostringwriter - Kiírás Stringbe StringWriterrel
+* ioreadbytes - Bájtok olvasása InputStreammel
+* ioreaderclasspath - String olvasása classpath-ról
+* iowritebytes - Bájtok írása OutputStreammel
+* iodatastream - Adatok írása OutputStreamre és olvasás
+* iozip - Bájtok írása tömörítéssel
+* ioconvert - Konvertálás a típusok között
+* iofiles - Files osztály használata
+* iofilestest - Fájlkezelés tesztelése
+* filescanner - Fájl olvasása Scannerrel
+* properties - Properties állományok
+
+Generikusok használata
+
+* genericclass - Generikus osztályok
+* genericinterface - Generikus interfészek
+* genericmethod - Generikus metódusok
+
+Reflection
+
+* reflectionintro - Bevezetés a reflection használatába
+* reflectionclasses - Osztályokkal kapcsolatos információk lekérdezése reflectionnel
+* reflectionattributes - Attribútumok reflectionnel
+* reflectionmethods - Metódusok kezelése reflectionnel
+* reflectionconstructors - Konstruktorok kezelése reflectionnel
+* reflectionforname - Osztály referencia a neve alapján
+* reflectiongenerics - Generikusok és tömbök használata reflectionnel
+
+Annotációk
+
+* annotations - Bevezetés az annotációk használatába
+* annotationsdetails - Részletesen az annotációkról
+* annotationsrepeating - Ismételhető annotációk
+
+JVM és osztálykönyvtárak
+
+* jvm - JVM
+* thirdparty - Third party library-k
+* logging - Naplózás
+
+### Tervezési minták és állapottér reprezentáció
+
+Tervezési minták és állapottér reprezentáció
+
+* dpintro - Bevezetés a tervezési minták használatába
+* solid - S.O.L.I.D. elvek
+* singleton - Singleton tervezési minta
+* builder - Builder tervezési minta
+* templatemethod - Template method tervezési minta
+* simplefactory - Simple factory tervezési minta
+* statespace - Állapottér reprezentáció
+
+### Grafikus felhasználói felületek
+
+Grafikus felhasználói felületek
+
+* swing - Swing
+* javafx - JavaFX

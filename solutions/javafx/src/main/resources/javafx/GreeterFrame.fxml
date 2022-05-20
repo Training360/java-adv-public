@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane fx:controller="javafx.GreeterController"
+          xmlns:fx="http://javafx.com/fxml" styleClass="flow-pane">
+
+    <stylesheets>
+        <URL value="@Application.css" />
+    </stylesheets>
+
+    <TextField fx:id="textField" />
+    <Button text="Say hello!" onAction="#buttonHasPressed" styleClass="my-button"/>
+    <Label fx:id="label" />
+</FlowPane>

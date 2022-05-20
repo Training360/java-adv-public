@@ -1,9 +1,8 @@
 package builder.robot;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MoveFrameBuilderTest {
 
@@ -14,7 +13,7 @@ public class MoveFrameBuilderTest {
         //When
         Frame frame = moveFrameBuilder.setRotationSpeed((byte) 100).build();
         //Then
-        assertThat(frame.toHexString(), is("7D-00-00-64-00-E1"));
+        assertEquals("7D-00-00-64-00-E1", frame.toHexString());
     }
 
     @Test
@@ -29,7 +28,7 @@ public class MoveFrameBuilderTest {
                 .setMaximumSpeed((byte) 4)
                 .build();
         //Then
-        assertThat(frame.toHexString(), is("7D-01-02-03-04-87"));
+        assertEquals("7D-01-02-03-04-87", frame.toHexString());
     }
 
     @Test
@@ -37,6 +36,6 @@ public class MoveFrameBuilderTest {
         //Given
         Frame frame = new MoveFrameBuilder().build();
         //Then
-        assertThat(frame.toHexString(), is("7D-00-00-00-00-7D"));
+        assertEquals("7D-00-00-00-00-7D", frame.toHexString());
     }
 }

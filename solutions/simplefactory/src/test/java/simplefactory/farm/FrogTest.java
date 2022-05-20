@@ -1,9 +1,9 @@
 package simplefactory.farm;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FrogTest {
 
@@ -12,6 +12,6 @@ public class FrogTest {
         //Given
         Frog frog = new Frog();
         //Then
-        assertThat(frog.speak(), is("brekeke"));
+        assertEquals("brekeke", frog.speak());
     }
 }

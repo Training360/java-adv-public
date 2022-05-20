@@ -1,23 +1,21 @@
 package lambdastreams.bookstore;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BookStoreTest {
+class BookStoreTest {
 
     List<Book> books;
 
-    @Before
-    public void initializeList(){
+    @BeforeEach
+    void initializeList() {
         books = new ArrayList<>();
         books.add(new Book("Learn Java in 24 hours", 2014, 3800, 22));
         books.add(new Book("Spring in Action", 2017, 5700, 10));
@@ -26,72 +24,45 @@ public class BookStoreTest {
         books.add(new Book("Java Cookbook", 2014, 9200, 4));
     }
 
-    @After
-    public void destroyList(){
-        books = null;
-    }
-
     @Test
-    public void getNumberOfBooks(){
+    void testGetNumberOfBooks() {
         BookStore bookStore = new BookStore(books);
 
-        assertThat(bookStore.getNumberOfBooks(), equalTo(83));
+        assertEquals(83, bookStore.getNumberOfBooks());
     }
 
     @Test
-    public void getNumberOfBooksForEmptyList(){
+    void testGetNumberOfBooksForEmptyList() {
         BookStore bookStore = new BookStore(Collections.emptyList());
 
-        assertThat(bookStore.getNumberOfBooks(), equalTo(0));
+        assertEquals(0, bookStore.getNumberOfBooks());
     }
 
     @Test
-    public void findNewestBook(){
+    void testFindNewestBook() {
         BookStore bookStore = new BookStore(books);
 
-        assertThat(bookStore.findNewestBook().get().getYearOfPublish(), equalTo(2017));
+        assertEquals(2017, bookStore.findNewestBook().get().getYearOfPublish());
     }
 
     @Test
-    public void findNewestBookForEmptyList(){
+    void testFindNewestBookForEmptyList() {
         BookStore bookStore = new BookStore(Collections.emptyList());
 
-        assertThat(bookStore.findNewestBook(), equalTo(Optional.empty()));
+        assertEquals(Optional.empty(), bookStore.findNewestBook());
     }
 
     @Test
-    public void getTotalValue() {
+    void testGetTotalValue() {
         BookStore bookStore = new BookStore(books);
 
-        assertThat(bookStore.getTotalValue(), equalTo(543_900));
+        assertEquals(543_900, bookStore.getTotalValue());
     }
 
     @Test
-    public void getTotalValueForEmptyList() {
+    void testGetTotalValueForEmptyList() {
         BookStore bookStore = new BookStore(Collections.emptyList());
 
-        assertThat(bookStore.getTotalValue(), equalTo(0));
-    }
-
-    @Test
-    public void getByYearOfPublish(){
-        BookStore bookStore = new BookStore(books);
-
-        assertThat(bookStore.getByYearOfPublish(2017).size(), equalTo(2));
-        assertThat(bookStore.getByYearOfPublish(2017).get(0).getPrice(), equalTo(5700));
-    }
-
-    @Test
-    public void getByYearOfPublishMissingYear(){
-        BookStore bookStore = new BookStore(books);
-
-        assertThat(bookStore.getByYearOfPublish(2007), equalTo(null));
-    }
-
-    @Test
-    public void getByYearOfPublishForEmptyList(){
-        BookStore bookStore = new BookStore(Collections.emptyList());
-
-        assertThat(bookStore.getByYearOfPublish(2007), equalTo(null));
+        assertEquals(0, bookStore.getTotalValue());
     }
 }

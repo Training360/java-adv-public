@@ -1,6 +1,5 @@
 package clone.timesheet;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TimeSheetItem {
@@ -27,10 +26,9 @@ public class TimeSheetItem {
         to = timeSheetItem.to;
     }
 
-    public static TimeSheetItem withDifferentDay(TimeSheetItem timeSheetItem, LocalDate localDate) {
+    public TimeSheetItem copyWithDifferentEmployee(TimeSheetItem timeSheetItem, String newEmployee) {
         TimeSheetItem newTimeSheetItem = new TimeSheetItem(timeSheetItem);
-        newTimeSheetItem.from = LocalDateTime.of(localDate, newTimeSheetItem.from.toLocalTime());
-        newTimeSheetItem.to = LocalDateTime.of(localDate, newTimeSheetItem.to.toLocalTime());
+        newTimeSheetItem.employee = newEmployee;
         return newTimeSheetItem;
     }
 

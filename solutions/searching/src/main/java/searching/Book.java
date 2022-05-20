@@ -36,12 +36,10 @@ public class Book implements Comparable<Book> {
 
     @Override
     public int compareTo(Book o) {
-
         if (author.compareTo(o.author) != 0) {
             return author.compareTo(o.author);
         } else {
             return title.compareTo(o.title);
         }
     }
-
 }

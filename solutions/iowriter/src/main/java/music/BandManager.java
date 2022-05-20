@@ -12,9 +12,6 @@ public class BandManager {
 
     private List<Band> bands = new ArrayList<>();
 
-    public BandManager() {
-    }
-
     public void readBandsFromFile(Path file) {
         try (BufferedReader br = Files.newBufferedReader(file)) {
             String line;

@@ -12,7 +12,8 @@ public class Clouds {
     }
 
     public CloudStorage bestPriceForShortestPeriod(List<CloudStorage> storages) {
-        return Collections.min(storages, Comparator.comparing(CloudStorage::getPeriod, Comparator.nullsFirst(Comparator.comparingInt(PayPeriod::getLength))).thenComparingDouble(CloudStorage::getPrice));
+        return Collections.min(storages, Comparator.comparing(CloudStorage::getPeriod,
+                Comparator.nullsFirst(Comparator.comparingInt(PayPeriod::getLength))).thenComparingDouble(CloudStorage::getPrice));
     }
 
     public List<CloudStorage> worstOffers(List<CloudStorage> storages) {

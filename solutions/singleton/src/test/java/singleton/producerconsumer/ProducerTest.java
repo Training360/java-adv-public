@@ -1,9 +1,9 @@
 package singleton.producerconsumer;
 
-import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProducerTest {
 
@@ -14,6 +14,6 @@ public class ProducerTest {
 
         producer.produce("Apple");
 
-        assertThat(store.remove().getName(), is("Apple"));
+        assertEquals("Apple", store.remove().getName());
     }
 }

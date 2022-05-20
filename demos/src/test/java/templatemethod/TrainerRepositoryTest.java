@@ -1,12 +1,11 @@
 package templatemethod;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TrainerRepositoryTest {
 
@@ -18,17 +17,17 @@ public class TrainerRepositoryTest {
     @Test
     public void testSearchByName() {
         List<Trainer> result = new TrainerRepository(trainers).findByCriteria(new ByNameCriteria("Jane Doe"));
-        assertThat(result.size(), equalTo(1));
-        assertThat(result.get(0).getName(), equalTo("Jane Doe"));
+        assertEquals(1, result.size());
+        assertEquals("Jane Doe", result.get(0).getName());
 
         result = new TrainerRepository(trainers).findByCriteria(new ByNameCriteria("Nobody"));
-        assertThat(result.size(), equalTo(0));
+        assertEquals(0, result.size());
     }
 
     @Test
     public void testSearchByAge() {
         List<Trainer> result = new TrainerRepository(trainers).findByCriteria(new ElderThanCriteria(20));
-        assertThat(result.size(), equalTo(3));
+        assertEquals(3, result.size());
 
     }
 }

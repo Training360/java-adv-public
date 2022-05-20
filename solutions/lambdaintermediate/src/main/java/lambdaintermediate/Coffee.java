@@ -1,14 +1,12 @@
 package lambdaintermediate;
 
-import java.math.BigDecimal;
-
 public class Coffee {
 
     private CoffeeType type;
 
-    private BigDecimal price;
+    private int price;
 
-    public Coffee(CoffeeType type, BigDecimal price) {
+    public Coffee(CoffeeType type, int price) {
         this.type = type;
         this.price = price;
     }
@@ -17,7 +15,7 @@ public class Coffee {
         return type;
     }
 
-    public BigDecimal getPrice() {
+    public int getPrice() {
         return price;
     }
 }

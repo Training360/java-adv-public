@@ -35,7 +35,7 @@ public class CountryStatistics {
 
     public Country mostBorderCountries(){
         Country max = countryList.get(0);
-        for(Country c : countryList){
+        for (Country c : countryList){
             if(c.getBorderCountries()>max.getBorderCountries()){
                 max=c;
             }

@@ -1,11 +1,11 @@
 package clone.issuetracker;
 
-
 import java.time.LocalDateTime;
 
 public class Comment {
 
     private String text;
+
     private LocalDateTime time;
 
     public Comment(String text, LocalDateTime time) {
