@@ -1,8 +1,6 @@
-# JAVA-BSC - Java SE haladó
+# JAVA-ADV - Java SE haladó
 
 ## Tartalomjegyzék
-
-### Kollekciók és osztálykönyvtárak
 
 Belső osztályok
 
@@ -27,16 +25,15 @@ Műveletek kollekciókkal
 * collectionsclass - Collections osztály (keresésen, rendezésen felüli metódusok)
 * clone - A clone() metódus, deep clone
 
+Projektfeladat
+
+* webshop - Projektfeladat - Webáruház
+
 Lambda kifejezések és streamek
 
 * lambda - Bevezetés a lambda kifejezések használatába
-* lambdademo - Bevezetés a lambda kifejezések használatába - gyakorlat
 * optional - Bevezetés az Optional osztály használatába
 * streams - Bevezetés a streamek használatába
-* streams-demo1 - Bevezetés a streamek használatába - gyakorlat - komplex példa
-* streams-demo2 - Bevezetés a streamek használatába - gyakorlat - források
-* streams-demo3 - Bevezetés a streamek használatába - gyakorlat - közbülső és lezáró műveletek
-* streamsalgorithms-demo - Programozási tételek streamek használatával - megoldás
 * lambdaintro - Bevezetés a lambda kifejezések használatába
 * lambdaoptional - Optional használata
 * lambdacomparator - Comparator módosítások
@@ -56,7 +53,6 @@ Dátum és időkezelés
 További osztályok és többnyelvű alkalmazások
 
 * formatlocaleregexp - Reguláris kifejezések
-* formatlocale - Locale osztály nyelv megadására
 * formatnumberformat - NumberFormat osztály számok formázására
 * formatlocalebundle - ResourceBundle osztály nyelvi fordítások tárolására
 * formatlocalemessage - MessageFormat paraméterezett nyelvi fordítások használatára
@@ -78,7 +74,6 @@ Haladó fájlkezelés
 * iozip - Bájtok írása tömörítéssel
 * ioconvert - Konvertálás a típusok között
 * iofiles - Files osztály használata
-* iofilestest - Fájlkezelés tesztelése
 * filescanner - Fájl olvasása Scannerrel
 * properties - Properties állományok
 
@@ -90,19 +85,10 @@ Generikusok használata
 
 Reflection
 
-* reflectionintro - Bevezetés a reflection használatába
-* reflectionclasses - Osztályokkal kapcsolatos információk lekérdezése reflectionnel
-* reflectionattributes - Attribútumok reflectionnel
-* reflectionmethods - Metódusok kezelése reflectionnel
-* reflectionconstructors - Konstruktorok kezelése reflectionnel
-* reflectionforname - Osztály referencia a neve alapján
-* reflectiongenerics - Generikusok és tömbök használata reflectionnel
+* dynamicproxy - Dynamic Proxy
 
 Annotációk
 
-* annotations - Bevezetés az annotációk használatába
-* annotationsdetails - Részletesen az annotációkról
-* annotationsrepeating - Ismételhető annotációk
 
 JVM és osztálykönyvtárak
 
@@ -110,7 +96,6 @@ JVM és osztálykönyvtárak
 * thirdparty - Third party library-k
 * logging - Naplózás
 
-### Tervezési minták és állapottér reprezentáció
 
 Tervezési minták és állapottér reprezentáció
 
@@ -120,9 +105,7 @@ Tervezési minták és állapottér reprezentáció
 * builder - Builder tervezési minta
 * templatemethod - Template method tervezési minta
 * simplefactory - Simple factory tervezési minta
-* statespace - Állapottér reprezentáció
 
-### Grafikus felhasználói felületek
 
 Grafikus felhasználói felületek
 
