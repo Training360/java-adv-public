@@ -12,9 +12,12 @@ class ChampionshipTest {
 
     List<TeamStatistics> teamStatistics;
 
+    TeamStatistics team = new TeamStatistics("Valencia");
+
     @BeforeEach
     void init() {
         Championship championship = new Championship();
+        championship.addTeam(team);
         championship.addGame(new Championship.GameResult("Real", "Barcelona", 2, 2));
         championship.addGame(new Championship.GameResult("Atletico", "Valencia", 0, 2));
         championship.addGame(new Championship.GameResult("Real", "Atletico", 1, 0));
@@ -24,22 +27,20 @@ class ChampionshipTest {
 
     @Test
     void testAddGame() {
-        assertTrue(teamStatistics.contains(new TeamStatistics("Real")));
-        assertTrue(teamStatistics.contains(new TeamStatistics("Barcelona")));
-        assertTrue(teamStatistics.contains(new TeamStatistics("Atletico")));
-        assertTrue(teamStatistics.contains(new TeamStatistics("Valencia")));
+        assertEquals(4,  teamStatistics.size());
+        assertTrue(teamStatistics.contains(team));
     }
 
     @Test
     void testOneTeam() {
-        int index = teamStatistics.indexOf(new TeamStatistics("Valencia"));
+        int index = teamStatistics.indexOf(team);
         TeamStatistics valencia = teamStatistics.get(index);
 
         assertEquals(2, valencia.getPlayed());
         assertEquals(1, valencia.getWon());
         assertEquals(1, valencia.getLost());
         assertEquals(0, valencia.getTied());
-        assertEquals(3, valencia.getGoalsfor());
+        assertEquals(3, valencia.getGoalsFor());
         assertEquals(2, valencia.getGoalsAgainst());
         assertEquals(3, valencia.getPoints());
     }

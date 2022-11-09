@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 public class PhysicalEducation {
 
-    public Set<Integer> getOrderInLessons(List<Student> students) {
+    public Set<Integer> getHeightsInOrder(List<Student> students) {
         Set<Integer> orderInLessons = new TreeSet<>();
         for (Student student : students) {
             orderInLessons.add(student.getHeight());
@@ -24,6 +24,6 @@ public class PhysicalEducation {
         students.add(new Student("Vörös Valéria", 130));
 
         PhysicalEducation physicalEducation = new PhysicalEducation();
-        System.out.println(physicalEducation.getOrderInLessons(students));
+        System.out.println(physicalEducation.getHeightsInOrder(students));
     }
 }

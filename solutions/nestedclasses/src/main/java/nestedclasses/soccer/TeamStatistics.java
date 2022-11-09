@@ -33,21 +33,6 @@ public class TeamStatistics {
                 + " " + goalsFor + " - " + goalsAgainst + ", " + points;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        TeamStatistics that = (TeamStatistics) o;
-
-        return teamName.equals(that.teamName);
-    }
-
-    @Override
-    public int hashCode() {
-        return teamName.hashCode();
-    }
-
     public String getTeamName() {
         return teamName;
     }
@@ -68,7 +53,7 @@ public class TeamStatistics {
         return games.lost;
     }
 
-    public int getGoalsfor() {
+    public int getGoalsFor() {
         return goalsFor;
     }
 

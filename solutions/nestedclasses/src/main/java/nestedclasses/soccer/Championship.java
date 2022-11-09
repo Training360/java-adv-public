@@ -11,6 +11,10 @@ public class Championship {
         this.leagueTable = new ArrayList<>();
     }
 
+    public void addTeam(TeamStatistics team) {
+        leagueTable.add(team);
+    }
+
     public void addGame(GameResult result) {
         TeamStatistics home = getTeam(result.teamHome);
         TeamStatistics quest = getTeam(result.teamGuest);
@@ -23,14 +27,14 @@ public class Championship {
     }
 
     private TeamStatistics getTeam(String teamName) {
-        TeamStatistics teamStatistics = new TeamStatistics(teamName);
-        int index = leagueTable.indexOf(teamStatistics);
-        if (index == -1) {
-            leagueTable.add(teamStatistics);
-            return teamStatistics;
+        for (int i = 0; i < leagueTable.size(); i++) {
+            if (leagueTable.get(i).getTeamName().equals(teamName)) {
+                return leagueTable.get(i);
+            }
         }
-
-        return leagueTable.get(index);
+        TeamStatistics teamStatistics = new TeamStatistics(teamName);
+        leagueTable.add(teamStatistics);
+        return teamStatistics;
     }
 
     public static class GameResult {

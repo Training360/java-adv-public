@@ -17,8 +17,8 @@ public class WebShop {
         List<Product> sorted = new ArrayList<>(products);
         sorted.sort(new Comparator<Product>() {
             @Override
-            public int compare(Product o1, Product o2) {
-                return o1.getName().compareTo(o2.getName());
+            public int compare(Product one, Product other) {
+                return one.getName().compareTo(other.getName());
             }
         });
         return sorted;
@@ -28,8 +28,8 @@ public class WebShop {
         List<Product> sorted = new ArrayList<>(products);
         sorted.sort(new Comparator<Product>() {
             @Override
-            public int compare(Product o1, Product o2) {
-                return (int) (o1.getPrice() - o2.getPrice());
+            public int compare(Product one, Product other) {
+                return (int) (one.getPrice() - other.getPrice());
             }
         });
         return sorted;
@@ -39,8 +39,8 @@ public class WebShop {
         List<Product> sorted = new ArrayList<>(products);
         sorted.sort(new Comparator<Product>() {
             @Override
-            public int compare(Product o1, Product o2) {
-                return o1.getDate().compareTo(o2.getDate());
+            public int compare(Product one, Product other) {
+                return one.getDate().compareTo(other.getDate());
             }
         });
         return sorted;
