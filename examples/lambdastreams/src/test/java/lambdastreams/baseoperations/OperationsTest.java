@@ -39,13 +39,6 @@ class OperationsTest {
     }
 
     @Test
-    void testGetDistinctElements() {
-        Operations operations = new Operations(Arrays.asList(1, 2, 1, 2, 1, 2, 4, 4, 4, 6));
-
-        assertEquals(4, operations.getDistinctElements().size());
-    }
-
-    @Test
     void testIsAllPositive() {
         Operations operations = new Operations(Arrays.asList(1, 2, 1, 2, 1, 2, 4, 4, 4, 6));
 
@@ -57,5 +50,12 @@ class OperationsTest {
         Operations operations = new Operations(Arrays.asList(1, 4, 7, 2, -3, 9, -4));
 
         assertFalse(operations.isAllPositive());
+    }
+
+    @Test
+    void testGetDistinctElements() {
+        Operations operations = new Operations(Arrays.asList(1, 2, 1, 2, 1, 2, 4, 4, 4, 6));
+
+        assertEquals(4, operations.getDistinctElements().size());
     }
 }

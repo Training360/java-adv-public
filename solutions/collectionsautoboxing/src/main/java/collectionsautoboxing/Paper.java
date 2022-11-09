@@ -11,14 +11,14 @@ public class Paper {
         return new HashMap<>(paper);
     }
 
-    public void putFurtherPaper(String className, int kilogramms) {
-        if (kilogramms == 0) {
+    public void putFurtherPaper(String className, int kilograms) {
+        if (kilograms == 0) {
             return;
         }
         if (!paper.containsKey(className)) {
-            paper.put(className, kilogramms);
+            paper.put(className, kilograms);
         } else {
-            paper.put(className, paper.get(className) + kilogramms);
+            paper.put(className, paper.get(className) + kilograms);
         }
     }
 
