@@ -4,7 +4,7 @@ import java.util.List;
 
 public class NameConcatenator {
 
-    public String concat(List<? extends HasName> list) {
+    public <T extends HasName> String concat(List<T> list) {
         StringBuilder sb = new StringBuilder();
         for (Object o: list) {
             sb.append(((HasName) o).getName()).append(", ");
