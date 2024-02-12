@@ -6,9 +6,12 @@ Belső osztályok
 
 * nestedclasses - Belső osztályok
 
-Kollekciók
+Generikusok
 
 * genericsusage - Generikusok használata, diamond operátor
+
+Kollekciók
+
 * collectionsequalshash - Az equals() és hashCode() metódusok
 * collectionslist - List, ArrayList kontra LinkedList
 * collectionsset - Set
@@ -87,15 +90,11 @@ Reflection
 
 * dynamicproxy - Dynamic Proxy
 
-Annotációk
-
-
 JVM és osztálykönyvtárak
 
 * jvm - JVM
 * thirdparty - Third party library-k
 * logging - Naplózás
-
 
 Tervezési minták és állapottér reprezentáció
 
@@ -105,7 +104,6 @@ Tervezési minták és állapottér reprezentáció
 * builder - Builder tervezési minta
 * templatemethod - Template method tervezési minta
 * simplefactory - Simple factory tervezési minta
-
 
 Grafikus felhasználói felületek
 
