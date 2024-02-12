@@ -16,7 +16,6 @@ public class Postman {
     }
 
     public void removeAddress(String address) {
-        int index = addresses.indexOf(address);
-        addresses.remove(index);
+        addresses.remove(address);
     }
 }
