@@ -1,111 +1,138 @@
 # JAVA-ADV - Java SE haladó
 
-## Tartalomjegyzék
 
-Belső osztályok
+## Bevezetés
 
-* nestedclasses - Belső osztályok
 
-Generikusok
+## Belső osztályok
 
-* genericsusage - Generikusok használata, diamond operátor
+* `nestedclasses` - Belső osztályok
 
-Kollekciók
+## Generikusok
 
-* collectionsequalshash - Az equals() és hashCode() metódusok
-* collectionslist - List, ArrayList kontra LinkedList
-* collectionsset - Set
-* collectionsqueue - Queue
-* collectionsmap - Map
-* collectionsautoboxing - Autoboxing használata kollekcióknál
+* `genericsusage` - Generikusok használata, diamond operátor
 
-Műveletek kollekciókkal
+## Kollekciók
 
-* collectionsiterator - Bejárás
-* collectionscomp - A Comparable és Comparator interfészek
-* searching - Keresés
-* sorting - Rendezés
-* collectionsclass - Collections osztály (keresésen, rendezésen felüli metódusok)
-* clone - A clone() metódus, deep clone
+* `collectionsequalshash` - Az equals() és hashCode() metódusok
+* `collectionslist` - List, ArrayList kontra LinkedList
+* `collectionsset` - Set
+* `collectionsqueue` - Queue
+* `collectionsmap` - Map
+* `collectionsautoboxing` - Autoboxing használata kollekcióknál
 
-Projektfeladat
+## Műveletek kollekciókkal
 
-* webshop - Projektfeladat - Webáruház
+* `collectionsiterator` - Bejárás
+* `collectionscomp` - A Comparable és Comparator interfészek
+* `searching` - Keresés
+* `sorting` - Rendezés
+* `collectionsclass` - Collections osztály (keresésen, rendezésen felüli metódusok)
+* `clone` - A clone() metódus, deep clone
 
-Lambda kifejezések és streamek
+## Projektfeladat
 
-* lambda - Bevezetés a lambda kifejezések használatába
-* optional - Bevezetés az Optional osztály használatába
-* streams - Bevezetés a streamek használatába
-* lambdaintro - Bevezetés a lambda kifejezések használatába
-* lambdaoptional - Optional használata
-* lambdacomparator - Comparator módosítások
-* lambdastreams - Streamek
-* lambdaintermediate - Intermediate műveletek
-* lambdaprimitives - Primitívek használata streamekben
-* lambdacollectors - Collectors
+* `webshop` - Projektfeladat - Webáruház
 
-Dátum és időkezelés
+## Lambda kifejezések és streamek
 
-* datenewtypes - Új típusok, LocalDate, LocalTime, parse
-* dateperiod - Period
-* dateduration - Duration
-* datedaylight - Időzónák és téli-nyári időszámítás
-* dateoldtypes - Régi dátum- és időkezeléssel kapcsolatos típusok
+* `lambda` - Bevezetés a lambda kifejezések használatába
+* `lambdademo` - Bevezetés a lambda kifejezések használatába - gyakorlat
+* `optional` - Bevezetés az Optional osztály használatába
+* `streams` - Bevezetés a streamek használatába
+* `streams-demo1` - Bevezetés a streamek használatába - gyakorlat - komplex példa
+* `streams-demo2` - Bevezetés a streamek használatába - gyakorlat - források
+* `streams-demo3` - Bevezetés a streamek használatába - gyakorlat - közbülső és lezáró műveletek
+* `streamsalgorithms` - Programozási tételek streamek használatával - gyakorlati feladatok
+* `streamsalgorithms-demo` - Programozási tételek streamek használatával - megoldás
+* `lambdaintro` - Lambda kifejezések
+* `lambdaoptional` - Az Optional osztály használata
+* `lambdacomparator` - Comparator módosítások
+* `lambdastreams` - Streamek
+* `lambdaintermediate` - Közbülső műveletek
+* `lambdaprimitives` - Primitívek használata streamekben
+* `lambdacollectors` - Collectorok
 
-További osztályok és többnyelvű alkalmazások
+## Dátum és időkezelés
 
-* formatlocaleregexp - Reguláris kifejezések
-* formatnumberformat - NumberFormat osztály számok formázására
-* formatlocalebundle - ResourceBundle osztály nyelvi fordítások tárolására
-* formatlocalemessage - MessageFormat paraméterezett nyelvi fordítások használatára
-* bigdecimal - Nagy számok kezelése
+* `datenewtypes` - Dátumok kezelése Java 8-tól
+* `dateperiod` - Period
+* `dateduration` - Duration
+* `datedaylight` - Időzónák és téli-nyári időszámítás
+* `dateinstant` - Instant osztály
+* `dateclock` - Clock osztály
+* `dateoldtypes` - Régi dátum- és időkezeléssel kapcsolatos típusok
 
-Haladó fájlkezelés
+## További osztályok és többnyelvű alkalmazások
 
-* ioreadstring - Szöveges állomány beolvasása
-* iowritestring - String kiírása szöveges állományba
-* ioreadwritebytes - Bájtok beolvasása fájlból és kiírása fájlba
-* ioreader - String olvasása Readerrel
-* iowriter - String írása Writerrel
-* ioprintwriter - Különböző típusok írása PrintWriterrel
-* iostringwriter - Kiírás Stringbe StringWriterrel
-* ioreadbytes - Bájtok olvasása InputStreammel
-* ioreaderclasspath - String olvasása classpath-ról
-* iowritebytes - Bájtok írása OutputStreammel
-* iodatastream - Adatok írása OutputStreamre és olvasás
-* iozip - Bájtok írása tömörítéssel
-* ioconvert - Konvertálás a típusok között
-* iofiles - Files osztály használata
-* filescanner - Fájl olvasása Scannerrel
-* properties - Properties állományok
+* `formatlocaleregexp` - Reguláris kifejezések
+* `formatlocale` - Locale osztály nyelv megadására
+* `formatnumberformat` - NumberFormat osztály számok formázására
+* `formatlocalebundle` - ResourceBundle osztály nyelvi fordítások tárolására
+* `formatlocalemessage` - MessageFormat paraméterezett nyelvi fordítások használatára
+* `bigdecimal` - Nagy számok kezelése
 
-Generikusok használata
+## Haladó fájlkezelés
 
-* genericclass - Generikus osztályok
-* genericinterface - Generikus interfészek
-* genericmethod - Generikus metódusok
+* `ioreadstring` - Szöveges állomány beolvasása
+* `iowritestring` - String kiírása szöveges állományba
+* `ioreadwritebytes` - Bájtok beolvasása fájlból és kiírása fájlba
+* `ioreader` - String olvasása Readerrel
+* `iowriter` - String írása Writerrel
+* `ioprintwriter` - Különböző típusok írása PrintWriterrel
+* `iostringwriter` - Kiírás Stringbe StringWriterrel
+* `ioreadbytes` - Bájtok olvasása InputStreammel
+* `ioreaderclasspath` - String olvasása classpath-ról
+* `iowritebytes` - Bájtok írása OutputStreammel
+* `iodatastream` - Adatok írása OutputStreamre és olvasás
+* `iozip` - Bájtok írása tömörítéssel
+* `ioconvert` - Konvertálás a típusok között
+* `iofiles` - Files osztály használata
+* `iofilestest` - Fájlkezelés tesztelése
+* `filescanner` - Fájl olvasása Scannerrel
+* `properties` - Properties állományok
 
-Reflection
+## Generikusok használata
 
-* dynamicproxy - Dynamic Proxy
+* `genericclass` - Generikus osztályok
+* `genericinterface` - Generikus interfészek
+* `genericmethod` - Generikus metódusok
 
-JVM és osztálykönyvtárak
+## Reflection
 
-* jvm - JVM
-* thirdparty - Third party library-k
-* logging - Naplózás
+* `reflectionintro` - Bevezetés a reflection használatába
+* `reflectionclasses` - Osztályok kezelése reflectionnel
+* `reflectionattributes` - Attribútumok reflectionnel
+* `reflectionmethods` - Metódusok kezelése reflectionnel
+* `reflectionconstructors` - Konstruktorok kezelése reflectionnel
+* `reflectionforname` - Osztály referencia a neve alapján
+* `reflectiongenerics` - Generikusok és tömbök használata reflectionnel
+* `dynamicproxy` - Dynamic Proxy
+* `classloader` - Osztálybetöltés
 
-Tervezési minták és állapottér reprezentáció
+## Annotációk
 
-* dpintro - Bevezetés a tervezési minták használatába
-* solid - S.O.L.I.D. elvek
-* singleton - Singleton tervezési minta
-* builder - Builder tervezési minta
-* templatemethod - Template method tervezési minta
-* simplefactory - Simple factory tervezési minta
+* `annotations` - Bevezetés az annotációk használatába
+* `annotationsdetails` - Részletesen az annotációkról
+* `annotationsrepeating` - Ismételhető annotációk
 
-Grafikus felhasználói felületek
+## JVM és osztálykönyvtárak
 
-* swing - Swing
-* javafx - JavaFX
+* `jvm` - JVM
+* `thirdparty` - Third party library-k
+* `logging` - Naplózás
+
+## Tervezési minták és állapottér reprezentáció
+
+* `dpintro` - Bevezetés a tervezési minták használatába
+* `solid` - S.O.L.I.D. elvek
+* `singleton` - Singleton tervezési minta
+* `builder` - Builder tervezési minta
+* `templatemethod` - Template method tervezési minta
+* `simplefactory` - Simple factory tervezési minta
+* `statespace` - Állapottér reprezentáció
+
+## Grafikus felhasználói felületek
+
+* `swing` - Swing
+* `javafx` - JavaFX

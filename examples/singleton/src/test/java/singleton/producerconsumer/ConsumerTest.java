@@ -6,25 +6,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ConsumerTest {
+class ConsumerTest {
 
     @Test
-    public void emptyStoreShouldThrowException() throws IllegalStateException {
-
-        StoreTestImpl store = new StoreTestImpl();
-
+    void emptyStoreShouldThrowException() throws IllegalStateException {
+        Store store = LocalStore.getInstance();
         Consumer consumer = new Consumer(store);
-
-
         Exception ex = assertThrows(IllegalStateException.class, () -> consumer.consume());
         assertEquals("Store is empty, no product is available!", ex.getMessage());
-
     }
 
     @Test
-    public void testConsume() {
+    void testConsume() {
         //Given
-        StoreTestImpl store = new StoreTestImpl();
+        Store store = LocalStore.getInstance();
         store.add(new Product("Apple"));
         store.add(new Product("Orange"));
         //When

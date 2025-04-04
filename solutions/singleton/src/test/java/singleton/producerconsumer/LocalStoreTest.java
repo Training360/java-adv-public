@@ -6,10 +6,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class LocalStoreTest {
+class LocalStoreTest {
 
     @Test
-    public void testGetInstance() {
+    void getInstance() {
         LocalStore store = LocalStore.getInstance();
         store.reset();
         LocalStore localStore = LocalStore.getInstance();
@@ -18,7 +18,7 @@ public class LocalStoreTest {
     }
 
     @Test
-    public void testAdd() {
+    void add() {
         //Given
         LocalStore store = LocalStore.getInstance();
         store.reset();
@@ -31,7 +31,7 @@ public class LocalStoreTest {
     }
 
     @Test
-    public void testAddTooMuch() {
+    void addTooMuch() {
         //Given
         LocalStore store = LocalStore.getInstance();
         store.reset();
@@ -46,7 +46,7 @@ public class LocalStoreTest {
     }
 
     @Test
-    public void removeFromEmptyStoreShouldThrowException() throws IllegalStateException {
+    void removeFromEmptyStoreShouldThrowException() throws IllegalStateException {
         LocalStore store = LocalStore.getInstance();
 
         store.reset();
@@ -56,7 +56,7 @@ public class LocalStoreTest {
     }
 
     @Test
-    public void testAddRemove() {
+    void addRemove() {
         //Given
         LocalStore store = LocalStore.getInstance();
         store.reset();
